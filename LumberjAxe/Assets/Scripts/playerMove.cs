@@ -9,14 +9,14 @@ public class playerMove : MonoBehaviour
 
     [SerializeField] private LayerMask platformLayerMask;
 
-    private Rigidbody2D player;
-    private CapsuleCollider2D playerCollider;
+    public Rigidbody2D player;
+    public CapsuleCollider2D playerCollider;
     private Vector2 moveVelocity;
 
     void Update()
     {
-        player = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        //player = gameObject.GetComponent<Rigidbody2D>();
+        //playerCollider = GetComponent<CapsuleCollider2D>();
 
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
         moveVelocity = moveInput.normalized * speed;
@@ -24,16 +24,36 @@ public class playerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        player.MovePosition(player.position + moveVelocity * Time.fixedDeltaTime);
+        //player.MovePosition(player.position + moveVelocity * Time.fixedDeltaTime);
 
         if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
             player.AddForce(transform.up * jumpheight);
+            Debug.Log("jump");
         }
+
+        Debug.Log(IsGrounded());
     }
+
+
     private bool IsGrounded()
     {
-        Physics2D.Raycast(playerCollider.bounds.center, Vector2.down, playerCollider.bounds.extents.y, + 1);
-        return true;
+        //creates ray and stores it in the hit var
+        RaycastHit2D hit = Physics2D.Raycast(playerCollider.bounds.center, Vector2.down, playerCollider.bounds.extents.y + 0.1f, platformLayerMask);
+        //sets color for draw ray
+        Color rayColor;
+        if(hit.collider != null)
+        {
+            rayColor = Color.green;
+        }else
+        {
+            rayColor = Color.red;
+        }
+        //draws ray in editor
+        Debug.DrawRay(playerCollider.bounds.center, Vector2.down * (playerCollider.bounds.extents.y + 0.1f), rayColor, 1);
+        Debug.Log(hit.collider);
+
+        //returns value
+        return hit.collider != null;
     }
 }

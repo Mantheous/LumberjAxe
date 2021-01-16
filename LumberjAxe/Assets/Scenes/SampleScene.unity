@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 996826624}
   - component: {fileID: 996826628}
   m_Layer: 0
-  m_Name: New Piskel (55) 1_0
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,10 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpheight: 10000
+  jumpheight: 500
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  player: {fileID: 996826625}
+  playerCollider: {fileID: 996826628}
 --- !u!50 &996826625
 Rigidbody2D:
   serializedVersion: 4
@@ -256,7 +258,7 @@ Rigidbody2D:
   m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -355,7 +357,7 @@ GameObject:
   - component: {fileID: 1202167973}
   - component: {fileID: 1202167972}
   m_Layer: 8
-  m_Name: New Piskel (56)_0
+  m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
