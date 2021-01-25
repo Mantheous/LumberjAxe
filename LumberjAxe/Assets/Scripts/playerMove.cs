@@ -12,14 +12,14 @@ public class playerMove : MonoBehaviour
     public Rigidbody2D player;
     public CapsuleCollider2D playerCollider;
     private Vector2 moveVelocity;
+    
 
     void Update()
     {
-        //player = gameObject.GetComponent<Rigidbody2D>();
-        //playerCollider = GetComponent<CapsuleCollider2D>();
+        player = gameObject.GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
 
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
-        moveVelocity = moveInput.normalized * speed;
+
     }
 
     private void FixedUpdate()
@@ -33,6 +33,11 @@ public class playerMove : MonoBehaviour
         }
 
         Debug.Log(IsGrounded());
+
+        if (Input.GetButton("Horizontal"))
+        {
+            transform.localPosition += Input.GetAxis("Horizontal") * transform.right * speed * Time.fixedDeltaTime;
+        }
     }
 
 
