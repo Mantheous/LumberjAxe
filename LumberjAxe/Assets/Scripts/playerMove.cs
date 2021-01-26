@@ -36,6 +36,10 @@ public class playerMove : MonoBehaviour
 
         if (Input.GetButton("Horizontal"))
         {
+            //So using the transform.position metod works, and I am actually suprised that it works as well as it does,
+            //but you are using the transform method and you should be using some method that actually calculates physics
+            //Transform doesn't, it just moves it. I think the only reason this even is able to detect colisions is because
+            //it is called during the physics update.
             transform.localPosition += Input.GetAxis("Horizontal") * transform.right * speed * Time.fixedDeltaTime;
         }
     }
