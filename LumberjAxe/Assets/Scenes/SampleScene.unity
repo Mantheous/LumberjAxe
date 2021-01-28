@@ -346,14 +346,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  jumpheight: 5
+  jumpheight: 7
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 256
   rb: {fileID: 996826625}
   playerCollider: {fileID: 996826628}
   buttonCusion: 0.1
-  XDampening: 0.9
+  XDampening: 0.99
 --- !u!50 &996826625
 Rigidbody2D:
   serializedVersion: 4
