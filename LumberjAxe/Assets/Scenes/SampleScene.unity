@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 505275561}
   - component: {fileID: 505275560}
   - component: {fileID: 505275559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Piskel (56)_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,8 +224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505275558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.35, y: 1.7959998, z: 0}
-  m_LocalScale: {x: 7.5237, y: 7.5237, z: 7.5237}
+  m_LocalPosition: {x: 5.29, y: -2.54, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -283,7 +283,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.8849006
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -306,8 +306,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11, y: 3.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -345,13 +345,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deadaaa3214430e449f7d44df936f561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpheight: 500
+  speed: 0.5
+  jumpheight: 5
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  player: {fileID: 996826625}
+  rb: {fileID: 996826625}
   playerCollider: {fileID: 996826628}
+  buttonCusion: 0.1
+  XDampening: 0.9
 --- !u!50 &996826625
 Rigidbody2D:
   serializedVersion: 4
@@ -432,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996826623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29153177, y: 0.5097091, z: 0}
+  m_LocalPosition: {x: 0.25, y: -2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,13 +492,13 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.64, y: 0.32}
-    newSize: {x: 1.1431822, y: 0.32}
+    newSize: {x: 7.4316196, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1320826, y: 0.16686559}
+  m_Size: {x: 7.5999665, y: 0.16686559}
   m_EdgeRadius: 0
 --- !u!212 &1202167973
 SpriteRenderer:
@@ -543,7 +545,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1.1431822, y: 0.32}
+  m_Size: {x: 7.4316196, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -557,8 +559,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202167971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.124, y: -0.44, z: 0}
-  m_LocalScale: {x: 6.7120876, y: 6.7120876, z: 6.7120876}
+  m_LocalPosition: {x: 0.113, y: -3.8, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 6.7120876}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -574,7 +576,7 @@ GameObject:
   - component: {fileID: 1387563478}
   - component: {fileID: 1387563477}
   - component: {fileID: 1387563476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Piskel (56)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,8 +668,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387563475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.781807, y: 1.7959998, z: 0}
-  m_LocalScale: {x: 7.5237, y: 7.5237, z: 7.5237}
+  m_LocalPosition: {x: 8.22, y: -1, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

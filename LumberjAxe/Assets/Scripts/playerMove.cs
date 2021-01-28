@@ -9,39 +9,57 @@ public class playerMove : MonoBehaviour
 
     [SerializeField] private LayerMask platformLayerMask;
 
-    public Rigidbody2D player;
+    public Rigidbody2D rb;
     public CapsuleCollider2D playerCollider;
     private Vector2 moveVelocity;
-    
+    float timeSinceButtonPressed = 0;
+    float timeSinceGrounded = 0;
+    public float buttonCusion = 0.2f;
+    public float XDampening;
+
+    private void Start()
+    {
+        playerCollider = GetComponent<CapsuleCollider2D>();
+        //rb = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        player = gameObject.GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        timeSinceButtonPressed += Time.deltaTime;
+        timeSinceGrounded += Time.deltaTime;
 
+        if (Input.GetButtonDown("Jump") || Input.GetKey(KeyCode.UpArrow))
+        {
+            timeSinceButtonPressed = 0;
+        }
 
+        if(IsGrounded())
+        {
+            timeSinceGrounded = 0;
+        }
+
+        if (timeSinceGrounded < buttonCusion && timeSinceButtonPressed < buttonCusion)
+        {
+            Debug.Log(timeSinceButtonPressed);
+            //rb.AddForce(transform.up * jumpheight);
+            rb.velocity = new Vector2(rb.velocity.x, jumpheight);
+            timeSinceGrounded = buttonCusion;
+            timeSinceButtonPressed = buttonCusion + 0.5f;
+        }
     }
 
     private void FixedUpdate()
     {
-        //player.MovePosition(player.position + moveVelocity * Time.fixedDeltaTime);
+        float Xvel = rb.velocity.x;
+        Xvel += Input.GetAxisRaw("Horizontal");
+        Xvel *= Mathf.Pow(1f - XDampening, Time.deltaTime * speed);
+        rb.velocity = new Vector2(Xvel, rb.velocity.y);
 
-        if (IsGrounded() && Input.GetButtonDown("Jump"))
-        {
-            player.AddForce(transform.up * jumpheight);
-            Debug.Log("jump");
-        }
 
-        Debug.Log(IsGrounded());
-
-        if (Input.GetButton("Horizontal"))
-        {
-            //So using the transform.position metod works, and I am actually suprised that it works as well as it does,
-            //but you are using the transform method and you should be using some method that actually calculates physics
-            //Transform doesn't, it just moves it. I think the only reason this even is able to detect colisions is because
-            //it is called during the physics update.
-            transform.localPosition += Input.GetAxis("Horizontal") * transform.right * speed * Time.fixedDeltaTime;
-        }
+        //movementToAdd = movementToAdd * Input.GetAxis("Horizontal") * speed;
+        //rb.velocity += movementToAdd;
+        //rb.velocity = (Input.GetAxis("Horizontal") * transform.right * speed * Time.fixedDeltaTime) + rb.velocity;
+        
     }
 
 
@@ -59,8 +77,8 @@ public class playerMove : MonoBehaviour
             rayColor = Color.red;
         }
         //draws ray in editor
-        Debug.DrawRay(playerCollider.bounds.center, Vector2.down * (playerCollider.bounds.extents.y + 0.1f), rayColor, 1);
-        Debug.Log(hit.collider);
+        //Debug.DrawRay(playerCollider.bounds.center, Vector2.down * (playerCollider.bounds.extents.y + 0.1f), rayColor, 1);
+        //Debug.Log(hit.collider);
 
         //returns value
         return hit.collider != null;
