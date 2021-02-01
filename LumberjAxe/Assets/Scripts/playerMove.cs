@@ -16,6 +16,7 @@ public class playerMove : MonoBehaviour
     float timeSinceGrounded = 0;
     public float buttonCusion = 0.2f;
     public float XDampening;
+    public Animator animator;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class playerMove : MonoBehaviour
         if (Input.GetButtonDown("Jump") || Input.GetKey(KeyCode.UpArrow))
         {
             timeSinceButtonPressed = 0;
+            //animator.setBool("Throw", true);
         }
 
         if(IsGrounded())
