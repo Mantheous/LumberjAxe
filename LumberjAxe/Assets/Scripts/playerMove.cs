@@ -6,12 +6,21 @@ public class playerMove : MonoBehaviour
 {
     public float speed = 10f;
     public float jumpheight = 10f;
+    public GameObject axe;
 
     [SerializeField] private LayerMask platformLayerMask;
 
     public Rigidbody2D rb;
     public CapsuleCollider2D playerCollider;
     private Vector2 moveVelocity;
+    
+    //throw stuff
+    public Vector2 axePos;
+    public Vector2 playerPos;
+    public Rigidbody2D axeForce;
+    public float upThrow = 10f;
+    public float forwardThrow = 10f;
+    
     float timeSinceButtonPressed = 0;
     float timeSinceGrounded = 0;
     public float buttonCusion = 0.2f;
@@ -28,6 +37,8 @@ public class playerMove : MonoBehaviour
     {
         timeSinceButtonPressed += Time.deltaTime;
         timeSinceGrounded += Time.deltaTime;
+        axePos = axe.transform.position;
+        playerPos = rb.transform.position;
 
         if (Input.GetButtonDown("Jump") || Input.GetKey(KeyCode.UpArrow))
         {
@@ -47,6 +58,15 @@ public class playerMove : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpheight);
             timeSinceGrounded = buttonCusion;
             timeSinceButtonPressed = buttonCusion + 0.5f;
+        }
+
+        //Axe throwing
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            axe.transform.position = playerPos;
+            axeForce.AddForce(transform.up * upThrow);
+            axeForce.AddForce(transform.right * forwardThrow);
         }
     }
 
@@ -85,4 +105,7 @@ public class playerMove : MonoBehaviour
         //returns value
         return hit.collider != null;
     }
+
+    
+
 }

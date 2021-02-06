@@ -662,12 +662,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845384480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76, y: 1.49, z: -6.34697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.049999997, y: -0.07999992, z: -6.34697}
+  m_LocalScale: {x: 0.9882269, y: 1.0058866, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 996826627}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &845384483
 BoxCollider2D:
@@ -682,7 +682,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0442715, y: 0.007378578}
+  m_Offset: {x: 0.011509925, y: 0.0015266091}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -693,7 +693,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35068327, y: 0.48349857}
+  m_Size: {x: 0.1779406, y: 0.34304944}
   m_EdgeRadius: 0
 --- !u!50 &845384484
 Rigidbody2D:
@@ -706,10 +706,10 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_UseAutoMass: 1
+  m_Mass: 0.060678862
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 10dfaee2f99d244119941c1ecf9b1a56, type: 2}
   m_Interpolate: 0
@@ -859,12 +859,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  jumpheight: 15
+  jumpheight: 25
+  axe: {fileID: 845384480}
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 256
   rb: {fileID: 996826625}
   playerCollider: {fileID: 996826628}
+  axePos: {x: 0, y: 0}
+  playerPos: {x: 15, y: 15}
+  axeForce: {fileID: 845384484}
+  upThrow: 20
+  forwardThrow: 25
   buttonCusion: 0.05
   XDampening: 0.99
   animator: {fileID: 996826629}
@@ -881,9 +887,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.25
-  m_LinearDrag: 2
-  m_AngularDrag: 2
-  m_GravityScale: 1.5
+  m_LinearDrag: 5
+  m_AngularDrag: 10
+  m_GravityScale: 2.5
   m_Material: {fileID: 6200000, guid: 10dfaee2f99d244119941c1ecf9b1a56, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -950,7 +956,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.25, y: -2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 845384482}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
