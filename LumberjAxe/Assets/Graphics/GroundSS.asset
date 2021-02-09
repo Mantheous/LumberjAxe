@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: GroundSS
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -45
+    m_End: 45
+    m_Order: 4
+    m_Sprites:
+    - {fileID: -4244265238168466042, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+    - {fileID: 5964729918048575946, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_Start: -135
+    m_End: -45
+    m_Order: 3
+    m_Sprites:
+    - {fileID: 1784335820472642224, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+    - {fileID: 3987661553056100969, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_Start: 135
+    m_End: 225
+    m_Order: 2
+    m_Sprites:
+    - {fileID: 4768481786813369379, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_Start: 45
+    m_End: 135
+    m_Order: 1
+    m_Sprites:
+    - {fileID: -1857253998992749988, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+    - {fileID: -6852181373683785543, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 866dab16642c7ff1d89bceef46b3c672, type: 3}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: -9023396946268732950, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 9182092192662211861, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 4320169547557993185, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: 1308643307040714392, guid: c2517890aaaab1449aa7c33ac1e464a7, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 0}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1

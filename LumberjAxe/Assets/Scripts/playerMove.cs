@@ -64,9 +64,23 @@ public class playerMove : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            //axe = instantiate a new axe
             axe.transform.position = playerPos;
+            //This will do the same thing in one line
+            //axeForce.AddForce(new Vector2(upThrow, forwardThrow))
             axeForce.AddForce(transform.up * upThrow);
             axeForce.AddForce(transform.right * forwardThrow);
+            //It might be smart to instead deal with our axes
+            //in terms of direction and magnitude rather than
+            //X speed and y speed.
+            //Instead we could have a normalized vector (just the dirrection)
+            //then multiply it by a float (just the magnitude).
+            //This looks more like this
+            /*
+            Vector2 dir = new Vector2(1, 1, 0).normalized;
+            float mag = 5;
+            axeForce.AddForce(dir * mag);
+            */
         }
     }
 
